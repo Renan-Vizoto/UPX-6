@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importar o Link
 import styles from './Card.module.css';
 
 interface CardProps {
