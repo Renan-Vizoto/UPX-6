@@ -9,7 +9,7 @@
 .container {
     background-color: #F5F6FA;
     padding: 40px;
-    min-height: 100vh;
+    max-height: 100vh;
 }
 
 .title {

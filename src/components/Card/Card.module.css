@@ -6,6 +6,7 @@ h3 {
 p {
     font-size: 1.4em;
     font-weight: 700;
+    color: black;
 }
 
 .card {
@@ -53,4 +54,8 @@ p {
     width: 25px;
     height: 25px;
     object-fit: contain;
+}
+
+.cardLink {
+    text-decoration: none;
 }
