@@ -5,15 +5,15 @@ import { useSensorData } from '../../contexts/SensorDataContext';
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const UmidadeSolo: React.FC = () => {
+const UmidadeAr: React.FC = () => {
     const { sensorData } = useSensorData();
 
     const data = {
         labels: sensorData.map(i => i.timestamp), 
         datasets: [
             {
-                label: 'Umidade do Solo (%)',
-                data: sensorData.map(i => i.umidadeSolo),
+                label: 'Umidade do Ar (%)',
+                data: sensorData.map(i => i.umidadeAr),
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1,
@@ -27,7 +27,7 @@ const UmidadeSolo: React.FC = () => {
 
     return (
         <div>
-            <h2>Umidade do Solo</h2>
+            <h2>Umidade do Ar</h2>
             <div style={{ height: '300px', width: '100%' }}>
                 <Line data={data} options={options} />
             </div>
@@ -35,4 +35,4 @@ const UmidadeSolo: React.FC = () => {
     );
 };
 
-export default UmidadeSolo;
+export default UmidadeAr;
