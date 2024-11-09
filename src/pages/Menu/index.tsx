@@ -5,10 +5,11 @@ import { db } from '../../firebaseConfig'; // Importa sua configuração do Fire
 import { collection, getDocs } from 'firebase/firestore';
 
 // Importar as imagens
-import umidadeSolo from '../../assets/solo.png';
-import umidadeAr from '../../assets/humidity.png';
-import temperatura from '../../assets/Temperature.png';
-import nivelReservatorio from '../../assets/Rain.png';
+import umidadeSolo from '../../assets/soil-moisture.svg';
+import umidadeAr from '../../assets/humidity.svg';
+import temperatura from '../../assets/temp.svg';
+import nivelReservatorio from '../../assets/water.svg';
+import cogumelo from '../../assets/mushroom.svg';
 
 export default function Menu() {
     // Estados para armazenar os dados do Firestore
@@ -28,7 +29,10 @@ export default function Menu() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>MUSHROOM</h1>
+            <center>
+                <h1 className={styles.title}>MyMush</h1> 
+                <img className={styles.mushIcon} src={cogumelo} alt={"cogumelo"} />
+            </center>
             <div className={styles.cards}>
                 {sensorData && (
                     <>
