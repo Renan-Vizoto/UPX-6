@@ -21,8 +21,13 @@ umidade_ar = 0.60
 temperatura = 27.0
 nivel_reservatorio = 0.75
 
-def variar_valor(valor, min_delta=-0.1, max_delta=0.1):
-    return valor + random.uniform(min_delta, max_delta)
+def variar_valor(valor, max=None, min=None, min_delta=-0.1, max_delta=0.1):
+    valor += random.uniform(min_delta, max_delta)
+    if max and valor > max:
+        valor = max
+    if min and valor < min:
+        valor = min
+    return valor
 
 for i in range(num_readings):
     timestamp_iso = (current_time.isoformat().split('.')[0] + "Z")
@@ -39,7 +44,7 @@ for i in range(num_readings):
 
     current_time += datetime.timedelta(minutes=intervalo_minutos)
 
-    umidade_solo = variar_valor(umidade_solo)
-    umidade_ar = variar_valor(umidade_ar)
-    temperatura = variar_valor(temperatura, min_delta=-1, max_delta=1)
-    nivel_reservatorio = variar_valor(nivel_reservatorio)
+    umidade_solo = variar_valor(umidade_solo, min=0, max=1)
+    umidade_ar = variar_valor(umidade_ar, min=0, max=1)
+    temperatura = variar_valor(temperatura, min_delta=-1, max_delta=1, min=0)
+    nivel_reservatorio = variar_valor(nivel_reservatorio, min=0, max=1)
