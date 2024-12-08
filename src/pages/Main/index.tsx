@@ -1,10 +1,12 @@
 import Card from '../../components/Card';
 import styles from './Menu.module.css';
 
-import umidadeSolo from '../../assets/solo.png';
-import umidadeAr from '../../assets/humidity.png';
-import temperatura from '../../assets/Temperature.png';
-import nivelReservatorio from '../../assets/Rain.png';
+import umidadeSolo from '../../assets/soil-moisture.svg';
+import umidadeAr from '../../assets/humidity.svg';
+import temperatura from '../../assets/temp.svg';
+import nivelReservatorio from '../../assets/water.svg';
+import cogumelo from '../../assets/mushroom.svg';
+
 import { useSensorData } from '../../contexts/SensorDataContext';
 
 export default function Main() {
@@ -12,7 +14,10 @@ export default function Main() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Mymush</h1>
+            <center>
+                <h1 className={styles.title}>MyMush</h1> 
+                <img className={styles.mushIcon} src={cogumelo} alt={"cogumelo"} />
+            </center>
             {!loading ? (
                 <div className={styles.cards}>
                     <Card
