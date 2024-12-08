@@ -1,39 +1,21 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import {
-    Chart,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-    TimeScale
-} from 'chart.js';
-import 'chartjs-adapter-date-fns';
+import { Chart, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, TimeScale } from 'chart.js'; 
+import 'chartjs-adapter-date-fns'; 
 import { useSensorData } from '../../contexts/SensorDataContext';
+import './NivelAgua.module.css'
 
-Chart.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-    TimeScale
-);
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, TimeScale);
 
-const UmidadeSolo: React.FC = () => {
+const NivelAgua: React.FC = () => {
     const { sensorData } = useSensorData();
 
     const data = {
-        labels: sensorData.map(i => i.timestamp),
+        labels: sensorData.map(i => i.timestamp), 
         datasets: [
             {
-                label: 'Umidade do Solo (%)',
-                data: sensorData.map(i => i.umidadeSolo),
+                label: 'Nível da água (%)',
+                data: sensorData.map(i => i.nivelReservatorio),
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1,
@@ -47,8 +29,8 @@ const UmidadeSolo: React.FC = () => {
             x: {
                 type: 'time',
                 time: {
-                    unit: 'day',
-                    tooltipFormat: 'yyyy-MM-dd',
+                    unit: 'day', 
+                    tooltipFormat: 'yyyy-MM-dd', 
                 },
                 ticks: {
                     maxTicksLimit: 7,
@@ -67,7 +49,7 @@ const UmidadeSolo: React.FC = () => {
                 margin: 30,
             }}
         >
-            <h2>Umidade do Solo</h2>
+            <h2>Nível da água</h2>
             <div style={{ height: '300px', width: '100%' }}>
                 <Line data={data} options={options} />
             </div>
@@ -75,4 +57,4 @@ const UmidadeSolo: React.FC = () => {
     );
 };
 
-export default UmidadeSolo;
+export default NivelAgua;
