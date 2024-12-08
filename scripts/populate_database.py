@@ -44,7 +44,7 @@ for i in range(num_readings):
 
     current_time += datetime.timedelta(minutes=intervalo_minutos)
 
-    umidade_solo = variar_valor(umidade_solo, min=0, max=1)
-    umidade_ar = variar_valor(umidade_ar, min=0, max=1)
+    umidade_solo = variar_valor(umidade_solo, min=0.5, max=0.8)
+    umidade_ar = variar_valor(umidade_ar, min=0.7, max=1)
     temperatura = variar_valor(temperatura, min_delta=-1, max_delta=1, min=0)
     nivel_reservatorio = variar_valor(nivel_reservatorio, min=0, max=1)
